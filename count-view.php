@@ -140,7 +140,7 @@ if ( !class_exists('Lbk_Count_View') ) {
         /**
          * Create DB
          * 
-         * @access public
+         * @access private
          * @since 1.0
          * @static
          */
