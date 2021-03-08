@@ -2,13 +2,15 @@
 // Die if accessed directly
 if ( !defined('ABSPATH') ) die();
 
-function count_view() {
-    if ( $_COOKIE['lbk_viewed'] != 'viewed') {
-        setcookie('lbk_viewed', 'viewed', time() + (5*60),'/');
+if ( !isset( $_COOKIE['lbk_viewed'] ) ) {
+    setcookie( 'lbk_viewed', 'lbk', time() + (5) , '/');
+
+    add_action( 'wp_footer', 'count_view' );
+    function count_view() {
         global $wpdb;
         $tablename = $wpdb->prefix."countview";
         $date = current_time('Y-m-d');
-        
+
         $sql = "SELECT SUM(count_view) as count_view FROM $tablename WHERE thoi_gian = '$date'";
         $rs = $wpdb->get_results(
             $wpdb->prepare($sql)
@@ -26,4 +28,3 @@ function count_view() {
         }
     }
 }
-add_action( 'wp_footer', 'count_view' );
