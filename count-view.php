@@ -140,11 +140,11 @@ if ( !class_exists('Lbk_Count_View') ) {
         /**
          * Create DB
          * 
-         * @access public
+         * @access private
          * @since 1.0
          * @static
          */
-        public function createDB() {
+        private static function createDB() {
             global $wpdb;
             $charset_collate = $wpdb->get_charset_collate();
 
