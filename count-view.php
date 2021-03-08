@@ -134,7 +134,7 @@ if ( !class_exists('Lbk_Count_View') ) {
          * @static
          */
         private static function hooks() {
-            add_action( 'wp_enqueue_scripts', array( __CLASS__, 'registerScripts' ) );
+            add_action( 'wp_enqueue_style', array( __CLASS__, 'enqueueStyle' ) );
         }
 
         /**
@@ -168,10 +168,10 @@ if ( !class_exists('Lbk_Count_View') ) {
          * @since 1.0
          * @static
          */
-        public function registerScripts() {
-            // wp_register_script( 'lbk_cv_script', LBK_CV_URL . 'assets/js/admin.js', array( 'jquery', 'wp_color-picker' ), lbkFc::VERSION, true );
-            $style = get_option('cv_style');
-            wp_enqueue_style( 'lbk_cv_style', LBK_CV_URL . 'assets/css/style-'.$style.'.css', array( 'wp-color-picker' ), Lbk_Count_View::VERSION );
+        public function enqueueStyle() {
+            if ( !get_option('cv_style') ) $style = 1;
+            else $style = get_option('cv_style');
+            wp_register_style( 'lbk_cv_style', LBK_CV_URL . 'assets/css/style-'.$style.'.css', array( 'wp-color-picker' ), Lbk_Count_View::VERSION );
         }
     }
 
