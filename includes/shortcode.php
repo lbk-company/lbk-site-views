@@ -26,14 +26,6 @@ function total_view() {
         <span class="count-view"><?= $count ?></span>
         <?php } ?>
     </div>
-    <style>
-        .lbk .count-view {
-            display: inline-block;
-            background: green;
-            color: white;
-            padding: 3px;
-        }
-    </style>
     
     <?php return ob_get_clean();
 }
@@ -60,14 +52,6 @@ function today_view() {
         <span class="count-view"><?= $count ?></span>
         <?php } ?>
     </div>
-    <style>
-        .lbk .count-view {
-            display: inline-block;
-            background: green;
-            color: white;
-            padding: 3px;
-        }
-    </style>
     
     <?php return ob_get_clean();
 }
