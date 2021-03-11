@@ -24,7 +24,7 @@ if ( !function_exists('lbk_total_views') ) {
         ?>
         <div class="lbk">
             <?php foreach ($view as $count) { ?>
-            <span class="count-view"><?= $count ?></span>
+            <span class="count-view"><?php echo $count; ?></span>
             <?php } ?>
         </div>
         
@@ -52,7 +52,7 @@ if ( !function_exists('lbk_today_views') ) {
         ?>
         <div class="lbk">
             <?php foreach ($view as $count) { ?>
-            <span class="count-view"><?= $count ?></span>
+            <span class="count-view"><?php echo $count; ?></span>
             <?php } ?>
         </div>
         

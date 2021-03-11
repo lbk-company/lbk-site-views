@@ -19,7 +19,7 @@
                 <label for="cv_style<?php echo $i ?>">
                     <img src="<?php echo LBK_CV_URL.'assets/images/style-'.$i.'.jpg'; ?>" alt="<?php echo 'style-'.$i; ?>" class="cv-style-img">
                     <input type="radio" name="cv_style" id="style-<?php echo $i; ?>" value="<?php echo $i; ?>" <?php if (get_option('cv_style') == $i) echo 'checked';?> >
-                    <span><?= $i ?></span>
+                    <span><?php echo $i; ?></span>
                 </label>
             <?php endforeach; ?>
         </div>
