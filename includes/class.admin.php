@@ -51,8 +51,8 @@ if ( !class_exists( 'lbkCv_Admin' ) ) {
          * @static
          */
         public function registerScripts() {
-            wp_register_script( 'lbk_cv_admin_script', LBK_CV_URL . 'assets/js/admin.js', array( 'jquery', 'wp_color-picker' ), Lbk_Count_View::VERSION, true );
-            wp_register_style( 'lbk_cv_admin_style', LBK_CV_URL . 'assets/css/admin.css', array( 'wp-color-picker' ), Lbk_Count_View::VERSION );
+            wp_register_script( 'lbk_cv_admin_script', LBK_CV_URL . 'js/admin.js', array( 'jquery', 'wp_color-picker' ), Lbk_Count_View::VERSION, true );
+            wp_register_style( 'lbk_cv_admin_style', LBK_CV_URL . 'css/admin.css', array( 'wp-color-picker' ), Lbk_Count_View::VERSION );
         }
 
         /**
