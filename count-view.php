@@ -168,7 +168,7 @@ if ( !class_exists('Lbk_Count_View') ) {
          * @since 1.0
          * @static
          */
-        public function enqueueStyle() {
+        public static function enqueueStyle() {
             if ( !get_option('cv_style') ) $style = 'default.css';
             else $style = 'style-' . get_option('cv_style') . '.css';
             wp_register_style( 'lbk_cv_style', LBK_CV_URL . 'css/' . $style, array(), Lbk_Count_View::VERSION );
@@ -188,10 +188,10 @@ if ( !class_exists('Lbk_Count_View') ) {
      * 
      * @return Lbk_Count_View
      */
-    function Lbk_Count_View() {
+    function Lbk_Count_View_Site() {
         return Lbk_Count_View::instance();
     }
 
     // Start LBK Count View
-    add_action( 'plugins_loaded', 'Lbk_Count_View' );
+    add_action( 'plugins_loaded', 'Lbk_Count_View_Site' );
 }

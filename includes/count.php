@@ -27,7 +27,7 @@ if ( !isset( $_COOKIE['lbk_viewed'] ) ) {
                 $wpdb->query($wpdb->prepare($query));
             }
         }
-        add_action( 'wp_footer', 'count_view' );
+        add_action( 'wp_footer', 'lbk_count_view' );
     }
     
 }
