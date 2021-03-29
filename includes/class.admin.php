@@ -29,6 +29,7 @@ if ( !class_exists( 'lbkCv_Admin' ) ) {
             add_action( 'admin_init', array( $this, 'registerScripts' ) );
             add_action( 'admin_menu', array( $this, 'menu' ) );
             add_action( 'admin_init', array( $this, 'register_lbk_cv_general_settings') );
+            add_filter( 'plugin_action_links_lbk-site-views/count-view.php', array( $this, 'lbk_settings_link' ) );
         }
 
         /**
@@ -98,6 +99,31 @@ if ( !class_exists( 'lbkCv_Admin' ) ) {
          */
         public function page() {
             include LBK_CV_PATH . 'includes/admin-options-page.php';
+        }
+
+        /**
+         * Add Setting link in plugin name bottom
+         * 
+         * @access private
+         * @since 1.0
+         * @static
+         */
+        public function lbk_settings_link( $links ) {
+            // Build and escape the URL.
+            $url = esc_url( add_query_arg(
+                'page',
+                'lbk-count-view',
+                get_admin_url() . 'options-general.php'
+            ) );
+            // Create the link.
+            $settings_link = "<a href='$url'>" . __( 'Settings' ) . '</a>';
+            // Adds the link to the end of the array.
+            array_push(
+                $links,
+                $settings_link
+            );
+
+            return $links;
         }
     }
     new lbkCv_Admin();

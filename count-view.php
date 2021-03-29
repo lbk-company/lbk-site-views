@@ -7,15 +7,15 @@
  * @copyright 2021 LBK
  * @license GPL-2.0-or-later
  * @category plugin
- * @version 1.0.3
+ * @version 1.0.4
  * 
  * @wordpress-plugin
  * Plugin Name:       LBK Count View
  * Plugin URI:        https://lbk.vn/
  * Description:       LBK Count View
- * Version:           1.0.3
- * Requires at least: 1.0.3
- * Requires PHP:      8.0
+ * Version:           1.0.4
+ * Requires at least: 1.0.4
+ * Requires PHP:      7.4
  * Author:            Briki - LBK
  * Author             URI: https://facebook.com/vuong.briki
  * Text Domain:       lbk-cv
@@ -51,7 +51,7 @@ if ( !class_exists('Lbk_Count_View') ) {
          * @since 1.0
          * @var string
          */
-        const VERSION = '1.0.0';
+        const VERSION = '1.0.4';
 
         /**
          * Store the instance of this class
