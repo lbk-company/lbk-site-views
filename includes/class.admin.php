@@ -110,7 +110,7 @@ if ( !class_exists( 'lbkCv_Admin' ) ) {
          */
         public function add_settings_link( $links, $file ) {
             if (
-                strrpos( $file, '/lbk-count-view.php' ) === ( strlen( $file ) - 19 ) &&
+                strrpos( $file, '/count-view.php' ) === ( strlen( $file ) - 15 ) &&
                 current_user_can( 'manage_options' )
             ) {
                 $settings_link = sprintf( '<a href="%s">%s</a>', admin_url( 'options-general.php?page=lbk-count-view' ), __( 'Settings', 'lbk-cv' ) );
