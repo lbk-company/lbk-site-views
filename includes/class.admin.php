@@ -29,7 +29,7 @@ if ( !class_exists( 'lbkCv_Admin' ) ) {
             add_action( 'admin_init', array( $this, 'registerScripts' ) );
             add_action( 'admin_menu', array( $this, 'menu' ) );
             add_action( 'admin_init', array( $this, 'register_lbk_cv_general_settings') );
-            add_filter( 'plugin_action_links_lbk-site-views/count-view.php', array( $this, 'lbk_settings_link' ) );
+            add_filter( 'plugin_action_links', array( $this, 'add_settings_link' ), 10, 2 );
         }
 
         /**
@@ -102,26 +102,21 @@ if ( !class_exists( 'lbkCv_Admin' ) ) {
         }
 
         /**
-         * Add Setting link in plugin name bottom
+         * Add a link to the settings page
          * 
-         * @access private
+         * @access public
          * @since 1.0
          * @static
          */
-        public function lbk_settings_link( $links ) {
-            // Build and escape the URL.
-            $url = esc_url( add_query_arg(
-                'page',
-                'lbk-count-view',
-                get_admin_url() . 'options-general.php'
-            ) );
-            // Create the link.
-            $settings_link = "<a href='$url'>" . __( 'Settings' ) . '</a>';
-            // Adds the link to the end of the array.
-            array_push(
-                $links,
-                $settings_link
-            );
+        public function add_settings_link( $links, $file ) {
+            if (
+                strrpos( $file, '/lbk-count-view.php' ) === ( strlen( $file ) - 19 ) &&
+                current_user_can( 'manage_options' )
+            ) {
+                $settings_link = sprintf( '<a href="%s">%s</a>', admin_url( 'options-general.php?page=lbk-count-view' ), __( 'Settings', 'lbk-cv' ) );
+                $links = (array) $links;
+                $links['lbksvc_settings_link'] = $settings_link;
+            }
 
             return $links;
         }

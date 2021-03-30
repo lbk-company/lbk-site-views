@@ -2,7 +2,7 @@
 Contributors: lbksolution
 Donate link: https://lbk.vn/
 Tags: size view count, lbk-cv
-Requires at least: 1.0
+Requires at least: 1.0.5
 Tested up to: 5.7
 Stable tag: 1.0
 Requires PHP: 7.4
